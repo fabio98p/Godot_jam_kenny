@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://gp5vbnxtb0vy"]
+
+[ext_resource type="Script" uid="uid://bceuo782wb83m" path="res://Menus/main_menu.gd" id="1_at0u2"]
+[ext_resource type="Texture2D" uid="uid://caydy4dgjh64t" path="res://Assets/kenney_particle-pack/PNG (Transparent)/light_03.png" id="1_p3jrs"]
+[ext_resource type="Texture2D" uid="uid://bsmovbdm4sv0l" path="res://Assets/kenney_simple-space/PNG/Default/ship_G.png" id="2_at0u2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhx3u"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_at0u2")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -130.0
+offset_top = -182.0
+offset_right = 1279.0
+offset_bottom = 888.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nhx3u")
+
+[node name="ButtonStart" type="Button" parent="."]
+layout_mode = 2
+offset_left = 140.0
+offset_top = 181.0
+offset_right = 278.0
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 32
+text = "Start"
+
+[node name="ButtonPowerUp" type="Button" parent="."]
+offset_left = 126.0
+offset_top = 277.0
+offset_right = 284.0
+offset_bottom = 354.0
+theme_override_font_sizes/font_size = 32
+text = "Power Up"
+
+[node name="ButtonExit" type="Button" parent="."]
+layout_mode = 2
+offset_left = 138.0
+offset_top = 378.0
+offset_right = 274.0
+offset_bottom = 451.0
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
+[node name="Star" type="Sprite2D" parent="."]
+position = Vector2(1115, 18)
+texture = ExtResource("1_p3jrs")
+
+[node name="PlayerShip" type="Sprite2D" parent="."]
+position = Vector2(744, 361)
+rotation = 0.523681
+texture = ExtResource("2_at0u2")
+
+[connection signal="pressed" from="ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="ButtonPowerUp" to="." method="_on_button_power_up_pressed"]
+[connection signal="pressed" from="ButtonExit" to="." method="_on_button_exit_pressed"]
