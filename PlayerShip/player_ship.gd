@@ -4,23 +4,24 @@ extends CharacterBody2D
 
 @export var bullet_scene: PackedScene
 
-const SPEED = 300.0
+const MAX_SPEED: float = 500.0
+const ACCEL: float = 1500.0
 
 func _physics_process(delta: float) -> void:
 
 	#handle the movement right and left
 	var directionx := Input.get_axis("Left", "Right")
 	if directionx:
-		velocity.x = directionx * SPEED
+		velocity.x = move_toward(velocity.x, directionx * MAX_SPEED, ACCEL * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, ACCEL * delta) 
 		
-	#handle the movement Up and Down
+	#handle the movement Up and Downaw
 	var directiony := Input.get_axis("Up", "Down")
 	if directiony:
-		velocity.y = directiony * SPEED
+		velocity.y = move_toward(velocity.y, directiony * MAX_SPEED, ACCEL * delta)
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.y = move_toward(velocity.y, 0, ACCEL * delta) 
 
 	#handle ship rotation in direction to the mouse
 	look_at(get_global_mouse_position())
@@ -33,4 +34,4 @@ func _input(event: InputEvent) -> void:
 		var bullet_instance = bullet_scene.instantiate()
 		get_parent().add_child(bullet_instance)
 		bullet_instance.global_position = global_position 
-		bullet_instance.global_rotation = global_rotation + 90
+		bullet_instance.global_rotation_degrees = global_rotation_degrees + 90

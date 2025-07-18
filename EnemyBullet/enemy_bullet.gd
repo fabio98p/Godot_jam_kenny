@@ -15,7 +15,4 @@ func destroyItself():
 	
 func destroyItselfAfterTime(time):
 	await get_tree().create_timer(time).timeout
-	destroyItself()
-
-func _on_area_2d_areda_entered(area: Area2D) -> void:
-	destroyItself()
+	queue_free()
