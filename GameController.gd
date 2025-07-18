@@ -1,3 +1,4 @@
 extends Node
 
-var money: int = 0
+var totalMoney: int = 0
+var collectedMoney: int = 0

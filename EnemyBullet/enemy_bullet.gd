@@ -16,3 +16,7 @@ func destroyItself():
 func destroyItselfAfterTime(time):
 	await get_tree().create_timer(time).timeout
 	queue_free()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	destroyItself()

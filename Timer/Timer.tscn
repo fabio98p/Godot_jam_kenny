@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://f46qj3kybku2"]
+
+[ext_resource type="Script" uid="uid://c7rxd65myh13x" path="res://Timer/timer.gd" id="1_e4beo"]
+
+[node name="Timer" type="Node2D"]
+script = ExtResource("1_e4beo")
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "00:00:00"

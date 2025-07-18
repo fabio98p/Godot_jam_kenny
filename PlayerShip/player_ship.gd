@@ -4,8 +4,8 @@ extends CharacterBody2D
 
 @export var bullet_scene: PackedScene
 
-const MAX_SPEED: float = 500.0
-const ACCEL: float = 1500.0
+@export var MAX_SPEED: float = 500.0
+@export var ACCEL: float = 1500.0
 
 func _physics_process(delta: float) -> void:
 
@@ -35,3 +35,7 @@ func _input(event: InputEvent) -> void:
 		get_parent().add_child(bullet_instance)
 		bullet_instance.global_position = global_position 
 		bullet_instance.global_rotation_degrees = global_rotation_degrees + 90
+
+
+func _on_enemy_bullet_collision_area_entered(area: Area2D) -> void:
+	print("ship destroyed")

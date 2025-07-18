@@ -34,10 +34,12 @@ theme_override_font_sizes/font_size = 32
 text = "Start"
 
 [node name="ButtonPowerUp" type="Button" parent="."]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 277.0
 offset_right = 284.0
 offset_bottom = 354.0
+scale = Vector2(1, 1.0051)
 theme_override_font_sizes/font_size = 32
 text = "Power Up"
 
