@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://biompsysi5h3h"]
+[gd_scene load_steps=3 format=3 uid="uid://biompsysi5h3h"]
+
+[ext_resource type="PackedScene" uid="uid://daynif12s5yqx" path="res://PlayerShip/PlayerShip.tscn" id="1_w77jt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4eo7"]
 bg_color = Color(0, 0, 0, 1)
@@ -11,3 +13,6 @@ offset_top = -182.0
 offset_right = 1279.0
 offset_bottom = 888.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_a4eo7")
+
+[node name="PlayerShip" parent="." instance=ExtResource("1_w77jt")]
+position = Vector2(546, 314)
