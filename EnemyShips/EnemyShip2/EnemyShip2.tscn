@@ -1,0 +1,154 @@
+[gd_scene load_steps=14 format=3 uid="uid://c6bau0cbkpob4"]
+
+[ext_resource type="Texture2D" uid="uid://b1me30q6mbm8y" path="res://Assets/kenney_simple-space/PNG/Default/enemy_A.png" id="1_bm7fu"]
+[ext_resource type="Script" uid="uid://cfwe1cecea2jm" path="res://EnemyShips/EnemyShip2/enemy_ship_2.gd" id="1_jsy7c"]
+[ext_resource type="PackedScene" uid="uid://cklapmbp03rxy" path="res://EnemyBullet/EnemyBullet2/EnemyBullet2.tscn" id="2_odhxt"]
+[ext_resource type="PackedScene" uid="uid://ftjbwl7h68qi" path="res://Drop/drop.tscn" id="3_c4bd8"]
+[ext_resource type="AudioStream" uid="uid://c17vq3fyy0i3m" path="res://Assets/kenney_sci-fi-sounds/Audio/impactMetal_001.ogg" id="5_0v5yl"]
+[ext_resource type="Texture2D" uid="uid://dep8u2fnucoj" path="res://Assets/kenney_particle-pack/PNG (Transparent)/smoke_10.png" id="6_qfm8g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oufov"]
+radius = 24.0832
+
+[sub_resource type="Animation" id="Animation_f17nh"]
+resource_name = "Pulse"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.5, 3.66667, 4.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 5), Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ep3l8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8b8vm"]
+_data = {
+&"Pulse": SubResource("Animation_f17nh"),
+&"RESET": SubResource("Animation_ep3l8")
+}
+
+[sub_resource type="Animation" id="Animation_8b8vm"]
+resource_name = "ExplosionWave"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionWaveSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplosionWaveSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ia7lm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionWaveSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplosionWaveSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ia7lm"]
+_data = {
+&"ExplosionWave": SubResource("Animation_8b8vm"),
+&"RESET": SubResource("Animation_ia7lm")
+}
+
+[node name="EnemyShip2" type="Node2D"]
+light_mask = 32
+script = ExtResource("1_jsy7c")
+bullet_scene = ExtResource("2_odhxt")
+drop_scene = ExtResource("3_c4bd8")
+bulletPerSecond = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("1_bm7fu")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6, 0)
+scale = Vector2(1.42338, 1.42338)
+shape = SubResource("CircleShape2D_oufov")
+
+[node name="EnemyPulse" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8b8vm")
+}
+autoplay = "Pulse"
+
+[node name="explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0v5yl")
+volume_db = 1.351
+
+[node name="ExplosionWaveSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_qfm8g")
+
+[node name="ExplosionWave" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ia7lm")
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="finished" from="explosion" to="." method="_on_explosion_finished"]

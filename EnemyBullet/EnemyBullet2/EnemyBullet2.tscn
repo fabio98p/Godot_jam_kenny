@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cklapmbp03rxy"]
+
+[ext_resource type="Script" uid="uid://mcsskcsfu0dv" path="res://EnemyBullet/EnemyBullet2/enemy_bullet_2.gd" id="1_agk71"]
+[ext_resource type="Texture2D" uid="uid://b2d1imm5vua62" path="res://Assets/kenney_particle-pack/PNG (Transparent)/slash_02.png" id="2_agk71"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agk71"]
+radius = 13.7885
+height = 27.577
+
+[node name="EnemyBullet2" type="Node2D"]
+script = ExtResource("1_agk71")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.942121, 0.289578, 0, 1)
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_agk71")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+scale = Vector2(5.5481, 5.5481)
+shape = SubResource("CapsuleShape2D_agk71")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
