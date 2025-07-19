@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ftjbwl7h68qi"]
+
+[ext_resource type="Script" uid="uid://b1lewp2md8n8g" path="res://Drop/drop.gd" id="1_3htmf"]
+[ext_resource type="Texture2D" uid="uid://c2s6ehobfk6qb" path="res://Assets/kenney_particle-pack/PNG (Transparent)/star_06.png" id="1_hmaih"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmaih"]
+
+[node name="Drop" type="Node2D"]
+scale = Vector2(0.15, 0.15)
+script = ExtResource("1_3htmf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hmaih")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(10.04, 10.04)
+shape = SubResource("CircleShape2D_hmaih")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

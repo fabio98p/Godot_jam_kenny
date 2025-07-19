@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbrd547eacge"]
+[gd_scene load_steps=6 format=3 uid="uid://bbrd547eacge"]
 
 [ext_resource type="Script" uid="uid://y18mki4klx60" path="res://EnemyShips/EnemyShip1/enemy_ship_1.gd" id="1_aqd36"]
 [ext_resource type="Texture2D" uid="uid://b1er4awmfc8ot" path="res://Assets/kenney_simple-space/PNG/Default/satellite_B.png" id="1_oufov"]
 [ext_resource type="PackedScene" uid="uid://dlee77crey76o" path="res://EnemyBullet/EnemyBullet.tscn" id="2_t4d8f"]
+[ext_resource type="PackedScene" uid="uid://ftjbwl7h68qi" path="res://Drop/drop.tscn" id="3_f17nh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oufov"]
 radius = 24.0832
@@ -11,6 +12,7 @@ radius = 24.0832
 light_mask = 32
 script = ExtResource("1_aqd36")
 bullet_scene = ExtResource("2_t4d8f")
+drop_scene = ExtResource("3_f17nh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
