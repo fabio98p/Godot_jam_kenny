@@ -1,11 +1,75 @@
-[gd_scene load_steps=5 format=3 uid="uid://gp5vbnxtb0vy"]
+[gd_scene load_steps=10 format=3 uid="uid://gp5vbnxtb0vy"]
 
 [ext_resource type="Script" uid="uid://bceuo782wb83m" path="res://Menus/main_menu.gd" id="1_at0u2"]
 [ext_resource type="Texture2D" uid="uid://caydy4dgjh64t" path="res://Assets/kenney_particle-pack/PNG (Transparent)/light_03.png" id="1_p3jrs"]
 [ext_resource type="Texture2D" uid="uid://bsmovbdm4sv0l" path="res://Assets/kenney_simple-space/PNG/Default/ship_G.png" id="2_at0u2"]
+[ext_resource type="PackedScene" uid="uid://daynif12s5yqx" path="res://PlayerShip/PlayerShip.tscn" id="4_11gta"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhx3u"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_11gta"]
+resource_name = "starBreath"
+length = 29.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Star:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.46667, 2.94462, 4.46667, 5.96667, 7.43333, 9, 10.5249, 12.0029, 13.5249, 15.0249, 16.4916, 18.0582, 19.5333, 21.0113, 22.5333, 24.0333, 25.5, 27.0667, 28.5667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.22, 0.22), Vector2(0.2, 0.2), Vector2(0.22, 0.22), Vector2(0.2, 0.2), Vector2(0.22, 0.22), Vector2(0.2, 0.2), Vector2(0.22, 0.22), Vector2(0.2, 0.2), Vector2(0.22, 0.22), Vector2(0.2, 0.2), Vector2(0.22, 0.22), Vector2(0.2, 0.2), Vector2(0.22, 0.22), Vector2(0.2, 0.2), Vector2(0.22, 0.22), Vector2(0.2, 0.2), Vector2(0.22, 0.22), Vector2(0.2, 0.2), Vector2(0.22, 0.22)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Star:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 29),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_cxdly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Star:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Star:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxn86"]
+_data = {
+&"RESET": SubResource("Animation_cxdly"),
+&"starBreath": SubResource("Animation_11gta")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_11gta"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -53,13 +117,54 @@ theme_override_font_sizes/font_size = 32
 text = "Exit"
 
 [node name="Star" type="Sprite2D" parent="."]
-position = Vector2(1115, 18)
+position = Vector2(900, 200)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_p3jrs")
 
 [node name="PlayerShip" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(744, 361)
 rotation = 0.523681
 texture = ExtResource("2_at0u2")
+
+[node name="PlayerShip2" parent="." instance=ExtResource("4_11gta")]
+position = Vector2(732, 372)
+
+[node name="AnimationStar" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vxn86")
+}
+
+[node name="MapBorder" type="Node" parent="."]
+
+[node name="left" type="StaticBody2D" parent="MapBorder"]
+rotation = 1.5708
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapBorder/left"]
+shape = SubResource("WorldBoundaryShape2D_11gta")
+
+[node name="up" type="StaticBody2D" parent="MapBorder"]
+rotation = 3.14159
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapBorder/up"]
+shape = SubResource("WorldBoundaryShape2D_11gta")
+
+[node name="down" type="StaticBody2D" parent="MapBorder"]
+position = Vector2(0, 648)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapBorder/down"]
+shape = SubResource("WorldBoundaryShape2D_11gta")
+
+[node name="right" type="StaticBody2D" parent="MapBorder"]
+position = Vector2(1152, 0)
+rotation = -1.5708
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapBorder/right"]
+shape = SubResource("WorldBoundaryShape2D_11gta")
 
 [connection signal="pressed" from="ButtonStart" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="ButtonPowerUp" to="." method="_on_button_power_up_pressed"]
