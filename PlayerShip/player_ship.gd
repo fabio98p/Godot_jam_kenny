@@ -45,6 +45,7 @@ func _input(event: InputEvent) -> void:
 	if can_move:
 		if event.is_action_pressed("Fire"):
 			# instantiate bulletd
+			bullet_sound.play()
 			spownBullet()
 
 func spownBullet():

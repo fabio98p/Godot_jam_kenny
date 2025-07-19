@@ -12,7 +12,7 @@
 script = ExtResource("1_iotdp")
 
 [node name="BackgroundStars" parent="." instance=ExtResource("2_nutv8")]
-position = Vector2(-282, 194)
+position = Vector2(-282, -194)
 scale = Vector2(1.5, 1.5)
 
 [node name="EnemySpawn" parent="." instance=ExtResource("5_nutv8")]
