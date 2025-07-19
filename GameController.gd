@@ -2,7 +2,7 @@ extends Node
 
 var totalDrop: int = 0
 var collectedDrop: int = 0
-var playerShipPosition: Vector2
+var playerShipPosition: Vector2 = Vector2(0,0)
 #upgrade 
 var playerMaxShield: int = 3
 var playerMaxVelocity: float = 500
