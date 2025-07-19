@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var bullet_sound: AudioStreamPlayer2D = $BulletSound
 
 @export var bullet_scene: PackedScene
 
@@ -40,6 +41,7 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Fire"):
 		# instantiate bulletd
+		bullet_sound.play()
 		spownBullet()
 
 func spownBullet():
@@ -52,5 +54,5 @@ func _on_enemy_bullet_collision_area_entered(area: Area2D) -> void:
 	current_shield -= 1
 	if current_shield == 0:
 		GC.setTotalDrop()
-		get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
+		#get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 		 
