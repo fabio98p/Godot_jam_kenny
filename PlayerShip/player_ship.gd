@@ -51,5 +51,6 @@ func spownBullet():
 func _on_enemy_bullet_collision_area_entered(area: Area2D) -> void:
 	current_shield -= 1
 	if current_shield == 0:
-		print("ship destroyed")
+		GC.setTotalDrop()
+		get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 		 
