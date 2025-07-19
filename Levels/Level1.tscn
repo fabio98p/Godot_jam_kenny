@@ -1,25 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://biompsysi5h3h"]
+[gd_scene load_steps=7 format=3 uid="uid://biompsysi5h3h"]
 
 [ext_resource type="PackedScene" uid="uid://f46qj3kybku2" path="res://Timer/Timer.tscn" id="1_fhqol"]
 [ext_resource type="Script" uid="uid://bq0aquwa50sej" path="res://Levels/level_1.gd" id="1_iotdp"]
 [ext_resource type="PackedScene" uid="uid://daynif12s5yqx" path="res://PlayerShip/PlayerShip.tscn" id="1_w77jt"]
-[ext_resource type="PackedScene" uid="uid://bbrd547eacge" path="res://EnemyShips/EnemyShip1/EnemyShip1.tscn" id="2_3anf8"]
+[ext_resource type="PackedScene" uid="uid://cog77nw86jt7g" path="res://Background/BackgroundStars.tscn" id="2_nutv8"]
 [ext_resource type="PackedScene" uid="uid://bff3u7fytgoow" path="res://EnemySpawn/enemy_spawn.tscn" id="5_nutv8"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4eo7"]
-bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iotdp"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_iotdp")
 
-[node name="Background" type="Panel" parent="."]
-offset_left = -130.0
-offset_top = -182.0
-offset_right = 1279.0
-offset_bottom = 888.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_a4eo7")
+[node name="BackgroundStars" parent="." instance=ExtResource("2_nutv8")]
+position = Vector2(-282, 194)
+scale = Vector2(1.5, 1.5)
 
 [node name="EnemySpawn" parent="." instance=ExtResource("5_nutv8")]
 position = Vector2(576, 324)
@@ -34,10 +28,8 @@ offset_bottom = 23.0
 position = Vector2(520, 5)
 
 [node name="PlayerShip" parent="." instance=ExtResource("1_w77jt")]
-position = Vector2(546, 314)
-
-[node name="EnemyShip1" parent="." instance=ExtResource("2_3anf8")]
-position = Vector2(331, 137)
+position = Vector2(576, 334)
+rotation = -1.55683
 
 [node name="MapBorder" type="Node" parent="."]
 

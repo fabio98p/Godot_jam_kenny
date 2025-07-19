@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 @export var bullet_scene: PackedScene
 
+@export var can_move: bool = false
+
 var max_velocity: float 
 var accel: float
 var max_shield: int
@@ -17,32 +19,33 @@ func _ready() -> void:
 	current_shield = max_shield
 
 func _physics_process(delta: float) -> void:
-	GC.setPlayerPosition(position)
-	
-	#handle the movement right and left
-	var directionx := Input.get_axis("Left", "Right")
-	if directionx:
-		velocity.x = move_toward(velocity.x, directionx * max_velocity, accel * delta)
-	else:
-		velocity.x = move_toward(velocity.x, 0, accel * delta) 
+	if can_move:
+		GC.setPlayerPosition(position)
 		
-	#handle the movement Up and Downaw
-	var directiony := Input.get_axis("Up", "Down")
-	if directiony:
-		velocity.y = move_toward(velocity.y, directiony * max_velocity, accel * delta)
-	else:
-		velocity.y = move_toward(velocity.y, 0, accel * delta) 
+		#handle the movement right and left
+		var directionx := Input.get_axis("Left", "Right")
+		if directionx:
+			velocity.x = move_toward(velocity.x, directionx * max_velocity, accel * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0, accel * delta) 
+			
+		#handle the movement Up and Downaw
+		var directiony := Input.get_axis("Up", "Down")
+		if directiony:
+			velocity.y = move_toward(velocity.y, directiony * max_velocity, accel * delta)
+		else:
+			velocity.y = move_toward(velocity.y, 0, accel * delta) 
 
-	#handle ship rotation in direction to the mouse
-	look_at(get_global_mouse_position())
-	
-	move_and_slide()
+		#handle ship rotation in direction to the mouse
+		look_at(get_global_mouse_position())
+		
+		move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Fire"):
-		# instantiate bulletd
-		bullet_sound.play()
-		spownBullet()
+	if can_move:
+		if event.is_action_pressed("Fire"):
+			# instantiate bulletd
+			spownBullet()
 
 func spownBullet():
 	var bullet_instance = bullet_scene.instantiate()
