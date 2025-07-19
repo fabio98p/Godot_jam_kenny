@@ -1,14 +1,16 @@
 extends Control
 
-@onready var star: Sprite2D = $Star
+@onready var star_container: Node2D = $StarContainer
+@onready var star: Sprite2D = $StarContainer/Star
+
 @onready var button_start: Button = $ButtonStart
 @onready var button_exit: Button = $ButtonExit
 var totalDrop: int
 var newScale
 
 func _ready() -> void:
-	newScale=star.scale.x+GC.totalDrop/60
-	star.scale= Vector2(newScale, newScale)
+	newScale=star_container.scale.x+GC.totalDrop/60
+	star_container.scale = Vector2(newScale, newScale)
 	star.texture = load(GC.setDimensionAndSpriteStar())
 	
 
