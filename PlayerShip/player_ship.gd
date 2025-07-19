@@ -8,7 +8,8 @@ extends CharacterBody2D
 @export var ACCEL: float = 1500.0
 
 func _physics_process(delta: float) -> void:
-
+	GC.setPlayerPosition(position)
+	
 	#handle the movement right and left
 	var directionx := Input.get_axis("Left", "Right")
 	if directionx:
@@ -31,11 +32,13 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Fire"):
 		# instantiate bulletd
-		var bullet_instance = bullet_scene.instantiate()
-		get_parent().add_child(bullet_instance)
-		bullet_instance.global_position = global_position 
-		bullet_instance.global_rotation_degrees = global_rotation_degrees + 90
+		spownBullet()
 
+func spownBullet():
+	var bullet_instance = bullet_scene.instantiate()
+	get_parent().add_child(bullet_instance)
+	bullet_instance.global_position = global_position 
+	bullet_instance.global_rotation_degrees = global_rotation_degrees + 90
 
 func _on_enemy_bullet_collision_area_entered(area: Area2D) -> void:
 	print("ship destroyed")
