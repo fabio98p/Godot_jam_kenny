@@ -3,6 +3,7 @@ extends Node
 var totalDrop: float = 200
 var collectedDrop: int = 0
 var playerShipPosition: Vector2 = Vector2(0,0)
+
 #upgrade 
 var playerMaxShield: int = 3
 var playerMaxVelocity: float = 500
@@ -11,6 +12,15 @@ var playerBulletDmg: int = 1
 var dropValue: int = 1
 var playerdimension: int =  1
 var bulletVelocity: int =  1
+
+#Upgrade value of setting
+var settingPlayerMaxShield: int = 0
+var settingPlayerMaxVelocity: float = 0
+var settingPlayerAccel: float = 0
+var settingPlayerBulletDmg: int = 0
+var settingDropValue: int = 0
+var settingPlayerdimension: int =  0
+var settingBulletVelocity: int =  0
 
 func getPlayerPosition():
 	return playerShipPosition

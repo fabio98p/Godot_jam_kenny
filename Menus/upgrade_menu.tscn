@@ -1,0 +1,71 @@
+[gd_scene load_steps=17 format=3 uid="uid://7kf44tljrxkf"]
+
+[ext_resource type="Script" uid="uid://dy8g4j5khdbtx" path="res://Menus/upgrade_menu.gd" id="1_xhdup"]
+[ext_resource type="PackedScene" uid="uid://cog77nw86jt7g" path="res://Background/BackgroundStars.tscn" id="2_7cpy8"]
+[ext_resource type="Texture2D" uid="uid://b81lfp6b6hnig" path="res://Assets/kenney_fantasy-ui-borders/PNG/Default/Border/panel-border-000.png" id="3_7cpy8"]
+[ext_resource type="Texture2D" uid="uid://bffsgoseleqt1" path="res://Assets/kenney_cursor-pack/PNG/Basic/Default/steps.png" id="4_4h6xr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ux873"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5rj4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kdyvl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g27cc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bajcn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gtd5e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x2juo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d401n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2msc6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tm5v3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vutji"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8rpn"]
+
+[node name="UpgradeMenu" type="Node2D"]
+script = ExtResource("1_xhdup")
+
+[node name="BackgroundStars" parent="." instance=ExtResource("2_7cpy8")]
+
+[node name="SpeedUpgrade" type="Node2D" parent="."]
+position = Vector2(258, 165)
+
+[node name="SpeedUpgradePanel" type="Panel" parent="SpeedUpgrade"]
+modulate = Color(0, 1, 0, 1)
+offset_left = -18.0
+offset_top = 18.0
+offset_right = 18.0
+offset_bottom = 18.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ux873")
+
+[node name="Panel-border-000" type="Sprite2D" parent="SpeedUpgrade"]
+texture = ExtResource("3_7cpy8")
+
+[node name="Sprite2D" type="Sprite2D" parent="SpeedUpgrade"]
+texture = ExtResource("4_4h6xr")
+
+[node name="SpeedUpgradeButton" type="Button" parent="SpeedUpgrade"]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k5rj4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_kdyvl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g27cc")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_bajcn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gtd5e")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_x2juo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d401n")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_2msc6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tm5v3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vutji")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u8rpn")
+
+[connection signal="pressed" from="SpeedUpgrade/SpeedUpgradeButton" to="." method="_on_speed_upgrade_pressed"]

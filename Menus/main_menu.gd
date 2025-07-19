@@ -22,8 +22,7 @@ func _on_button_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://Levels/Level1.tscn")
 
 func _on_button_power_up_pressed() -> void:
-	#potenzia in qualche modo la nave
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Menus/upgrade_menu.tscn")
 
 func _on_button_exit_pressed() -> void:
 	get_tree().quit()
