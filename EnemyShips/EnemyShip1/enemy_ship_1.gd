@@ -1,4 +1,4 @@
-extends Node2D
+extends RigidBody2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var explosion: AudioStreamPlayer2D = $explosion
@@ -21,7 +21,7 @@ func _ready() -> void:
 	enemyDestroy == false
 	startFireBulletLoop()
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	look_at(GC.getPlayerPosition())
 	enemyMoviment(delta)
 
@@ -60,12 +60,17 @@ func _on_explosion_finished() -> void:
 
 func enemyMoviment(delta):
 	if !enemyDestroy:
+		
 		var distance_from_player: float = position.distance_to(GC.getPlayerPosition())
+		var direction = Vector2(1, 0).rotated(rotation) # Esempio: si muove in avanti
 		if distance_from_player > 300.0:
-			position += transform.x * speed * delta
+			apply_central_force(direction * speed)
+			
 		elif distance_from_player < 250.0: 
-			position -= transform.x * speed * delta
+			apply_central_force(-direction * speed)
 		if distance_from_player < 300.0 and distance_from_player > 250.0:
 			can_shoot = true
 		else:
 			can_shoot = false
+		if linear_velocity.length() > speed:
+			linear_velocity = linear_velocity.normalized() * speed

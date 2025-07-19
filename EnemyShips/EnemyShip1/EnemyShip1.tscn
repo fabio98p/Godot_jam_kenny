@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbrd547eacge"]
+[gd_scene load_steps=15 format=3 uid="uid://bbrd547eacge"]
 
 [ext_resource type="Script" uid="uid://y18mki4klx60" path="res://EnemyShips/EnemyShip1/enemy_ship_1.gd" id="1_aqd36"]
 [ext_resource type="Texture2D" uid="uid://b1er4awmfc8ot" path="res://Assets/kenney_simple-space/PNG/Default/satellite_B.png" id="1_oufov"]
@@ -109,8 +109,13 @@ _data = {
 &"RESET": SubResource("Animation_ia7lm")
 }
 
-[node name="EnemyShip1" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8b8vm"]
+
+[node name="EnemyShip1" type="RigidBody2D"]
 light_mask = 32
+collision_layer = 16
+collision_mask = 16
+gravity_scale = 0.0
 script = ExtResource("1_aqd36")
 bullet_scene = ExtResource("2_t4d8f")
 drop_scene = ExtResource("3_f17nh")
@@ -120,6 +125,7 @@ rotation = 1.5708
 texture = ExtResource("1_oufov")
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1.54066, 1.54066)
 collision_layer = 16
 collision_mask = 3
 
@@ -145,6 +151,10 @@ texture = ExtResource("6_8b8vm")
 libraries = {
 &"": SubResource("AnimationLibrary_ia7lm")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.9588, 2.9588)
+shape = SubResource("CircleShape2D_8b8vm")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="finished" from="explosion" to="." method="_on_explosion_finished"]
