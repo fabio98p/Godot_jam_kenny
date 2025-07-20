@@ -15,7 +15,7 @@ var newScale
 func _ready() -> void:
 	newScale=star_container.scale.x+GC.totalDrop/600
 	star_container.scale = Vector2(newScale, newScale)
-	star.texture = load(GC.setDimensionAndSpriteStar())
+	#star.texture = load(GC.setDimensionAndSpriteStar())
 	animation_feed_star.num_sprites_to_spawn = GC.collectedDrop
 	GC.setTotalDrop()
 	await get_tree().create_timer(2).timeout 
@@ -33,4 +33,6 @@ func _on_button_exit_pressed() -> void:
 	get_tree().quit()
 
 func _process(delta: float) -> void:
-	star
+	if GC.starAnimation:
+		await get_tree().create_timer(2).timeout 
+		star.texture = load(GC.setDimensionAndSpriteStar())

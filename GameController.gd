@@ -1,6 +1,8 @@
 extends Node
 
 var totalDrop: float = 0
+var starDrop: float = 0
+var starAnimation: bool = false
 var collectedDrop: int = 0
 var playerShipPosition: Vector2 = Vector2(0,0)
 var currentShield: int
@@ -42,19 +44,21 @@ func setCollectDrop():
 
 func setTotalDrop():
 	totalDrop += collectedDrop
+	starDrop += collectedDrop
 	collectedDrop = 0
 	
 func setDimensionAndSpriteStar():
-	if  totalDrop <= 5:
-		return "res://Assets/kenney_particle-pack/PNG (Transparent)/circle_01.png"
-	if totalDrop > 5  && totalDrop <= 19:
-		return "res://Assets/kenney_particle-pack/PNG (Transparent)/light_02.png"
-	if totalDrop > 19 && totalDrop <= 39:
-		#stella media 
-		return "res://Assets/kenney_particle-pack/PNG (Transparent)/light_03.png"
-	if totalDrop > 39 && totalDrop <= 59:
-		#stella grande 
-		return "res://Assets/kenney_particle-pack/PNG (Transparent)/light_01.png"
-	if totalDrop > 59:
-		#stella completa
-		return "res://Assets/kenney_particle-pack/PNG (Transparent)/star_09.png"
+		if  starDrop <= 5:
+			return "res://Assets/kenney_particle-pack/PNG (Transparent)/circle_01.png"
+		if starAnimation:
+			if starDrop > 5  && starDrop <= 59:
+				return "res://Assets/kenney_particle-pack/PNG (Transparent)/light_02.png"
+			if starDrop > 59 && starDrop <= 89:
+				#stella media 
+				return "res://Assets/kenney_particle-pack/PNG (Transparent)/light_03.png"
+			if starDrop > 89 && starDrop <= 109:
+				#stella grande 
+				return "res://Assets/kenney_particle-pack/PNG (Transparent)/light_01.png"
+			if starDrop > 109:
+				#stella completa
+				return "res://Assets/kenney_particle-pack/PNG (Transparent)/star_09.png"

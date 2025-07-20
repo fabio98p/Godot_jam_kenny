@@ -40,3 +40,4 @@ func start_animation():
 		# Aggiunge un breve ritardo casuale tra lo spawn di ogni sprite.
 		# Crea un effetto di "scia" o "arrivo graduale".
 		await get_tree().create_timer(randf_range(0.005, 0.02)).timeout
+		GC.starAnimation = true

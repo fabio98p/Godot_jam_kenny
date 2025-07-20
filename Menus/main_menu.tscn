@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://gp5vbnxtb0vy"]
 
 [ext_resource type="Script" uid="uid://bceuo782wb83m" path="res://Menus/main_menu.gd" id="1_at0u2"]
-[ext_resource type="Texture2D" uid="uid://caydy4dgjh64t" path="res://Assets/kenney_particle-pack/PNG (Transparent)/light_03.png" id="1_p3jrs"]
 [ext_resource type="PackedScene" uid="uid://cog77nw86jt7g" path="res://Background/BackgroundStars.tscn" id="2_11gta"]
 [ext_resource type="PackedScene" uid="uid://ifgqtvl28fyu" path="res://AnimationFeedStar/AnimationFeedStar.tscn" id="3_cxdly"]
 [ext_resource type="PackedScene" uid="uid://daynif12s5yqx" path="res://PlayerShip/PlayerShip.tscn" id="4_11gta"]
+[ext_resource type="Texture2D" uid="uid://c2u1ipc3k7y2c" path="res://Assets/kenney_particle-pack/PNG (Transparent)/circle_04.png" id="4_cxdly"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhx3u"]
 bg_color = Color(0, 0, 0, 1)
@@ -411,7 +411,7 @@ position = Vector2(881, 176)
 [node name="Star" type="Sprite2D" parent="StarContainer"]
 position = Vector2(3.63798e-12, -4.76837e-07)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_p3jrs")
+texture = ExtResource("4_cxdly")
 
 [node name="PlayerShip2" parent="." instance=ExtResource("4_11gta")]
 position = Vector2(512, 751)
