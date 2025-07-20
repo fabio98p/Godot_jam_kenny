@@ -67,8 +67,9 @@ func enemyMoviment(delta):
 			
 		elif distance_from_player < 250.0: 
 			apply_central_force(-direction * speed)
-		if distance_from_player < 300.0 and distance_from_player > 250.0:
-			can_shoot = true
+		if distance_from_player < 500.0 and distance_from_player > 250.0:
+			if position.x > 1150 || position.x < 0 && position.y > 0 || position.y < - 650:
+				can_shoot = true
 		else:
 			can_shoot = false
 		if linear_velocity.length() > speed:

@@ -3,6 +3,7 @@ extends Node2D
 @export var spawn_radius : float = 300.0
 
 @export var enemy_to_spawn : PackedScene
+var can_spawn:bool
 
 var initial_spawn_positions = {
 	"top_left": Vector2(-100, -100), 
@@ -28,6 +29,7 @@ var angolo_nemici = {
 @export var spawn_rate: float = 1
 
 func _ready() -> void:
+	can_spawn = false
 	spawn_enemy_loop()
 
 
@@ -37,7 +39,8 @@ func _process(delta: float) -> void:
 func spawn_enemy_loop():
 	while true:
 		await get_tree().create_timer(spawn_rate).timeout
-		spawn_enemy_to_corner()
+		if can_spawn:
+			spawn_enemy_to_corner()
 		
 func spawn_enemy_to_corner():
 	var available_corners = []

@@ -5,6 +5,8 @@ extends Node2D
 @onready var player_ship: CharacterBody2D = $PlayerShip
 @onready var ui_shield: Sprite2D = $"UI shield"
 @onready var ui_shield_2: Sprite2D = $"UI shield2"
+@onready var enemy_spawn_2: Node2D = $EnemySpawn2
+@onready var enemy_spawn_3: Node2D = $EnemySpawn3
 
 @export var shield_textures: Array[Texture2D]
 
@@ -17,14 +19,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	drop.text = str( GC.collectedDrop )
 	setUiShield()
+	difficultyIncrese()
+	
 
-#func setUiShield():
-	#var currentShield = GC.currentShield
-	#print(currentShield)
-	#if currentShield >= 0 and currentShield < shield_textures.size():
-		#ui_shield.texture = shield_textures[currentShield]
-	#else:
-		#print("Valore scudo non valido:", currentShield)
+func difficultyIncrese():
+	await get_tree().create_timer(10).timeout
+	enemy_spawn_2.can_spawn = true
+	await get_tree().create_timer(20).timeout
+	enemy_spawn_3.can_spawn = true
 		
 		
 func setUiShield():
