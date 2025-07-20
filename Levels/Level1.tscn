@@ -29,9 +29,10 @@ scale = Vector2(3.0161, -2.61927)
 spawn_radius = 700.0
 
 [node name="EnemySpawn2" parent="." instance=ExtResource("4_05pb0")]
-spawn_rate = 3.0
+spawn_rate = 4.0
 
 [node name="EnemySpawn3" parent="." instance=ExtResource("5_xcayt")]
+spawn_rate = 2.0
 
 [node name="Drop" type="Label" parent="."]
 offset_right = 40.0

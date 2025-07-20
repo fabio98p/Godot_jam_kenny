@@ -23,9 +23,9 @@ func _process(delta: float) -> void:
 		
 
 func difficultyIncrese():
-	await get_tree().create_timer(10).timeout
-	enemy_spawn_2.can_spawn = true
 	await get_tree().create_timer(20).timeout
+	enemy_spawn_2.can_spawn = true
+	await get_tree().create_timer(40).timeout
 	enemy_spawn_3.can_spawn = true
 		
 		

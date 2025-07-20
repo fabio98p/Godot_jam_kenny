@@ -1,6 +1,6 @@
 extends Node
 
-var totalDrop: float = 2000
+var totalDrop: float = 20000
 var collectedDrop: int = 0
 var playerShipPosition: Vector2 = Vector2(0,0)
 var currentShield: int
