@@ -95,15 +95,6 @@ position = Vector2(1125, 22)
 scale = Vector2(0.348565, 0.348565)
 texture = ExtResource("4_4h6xr")
 
-[node name="GiveAllUpgrade" type="Button" parent="."]
-offset_left = 918.0
-offset_top = 554.0
-offset_right = 1133.0
-offset_bottom = 631.0
-text = "if you want all the upgrade
- without farm
- press here"
-
 [connection signal="button_pressed" from="MaxShildUpgrade" to="." method="_on_max_shild_upgrade_button_pressed"]
 [connection signal="button_pressed" from="MaxVelocityUpgrade" to="." method="_on_max_velocity_upgrade_button_pressed"]
 [connection signal="button_pressed" from="AccellerationUpgrade" to="." method="_on_accelleration_upgrade_button_pressed"]
@@ -113,4 +104,3 @@ text = "if you want all the upgrade
 [connection signal="button_pressed" from="DropValueUpgrade" to="." method="_on_drop_value_upgrade_button_pressed"]
 [connection signal="button_pressed" from="DropVelocityUpgrade" to="." method="_on_drop_velocity_upgrade_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="GiveAllUpgrade" to="." method="_on_give_all_upgrade_pressed"]
