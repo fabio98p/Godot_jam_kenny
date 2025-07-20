@@ -6,7 +6,7 @@ var playerShipPosition: Vector2 = Vector2(0,0)
 var currentShield: int
 
 #upgrade 
-var playerMaxShield: int = 3
+var playerMaxShield: int = 4
 var playerMaxVelocity: float = 500
 var playerAccel: float = 1500
 var playerBulletDmg: int = 1
