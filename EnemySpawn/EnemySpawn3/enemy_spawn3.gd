@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var spawn_radius : float = 50.0
+@export var spawn_radius : float = 700.0
 
 @export var enemy_to_spawn : PackedScene
 

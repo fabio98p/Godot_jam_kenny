@@ -1,20 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://7kf44tljrxkf"]
+[gd_scene load_steps=4 format=3 uid="uid://7kf44tljrxkf"]
 
 [ext_resource type="Script" uid="uid://dy8g4j5khdbtx" path="res://Menus/upgrade_menu.gd" id="1_xhdup"]
 [ext_resource type="PackedScene" uid="uid://cog77nw86jt7g" path="res://Background/BackgroundStars.tscn" id="2_7cpy8"]
 [ext_resource type="PackedScene" uid="uid://bcql74dv86uro" path="res://Menus/Button/ButtonUpgrade.tscn" id="3_kdyvl"]
-[ext_resource type="Texture2D" uid="uid://b5t5cetb6rver" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Border/panel-border-004.png" id="5_k5rj4"]
 
 [node name="UpgradeMenu" type="Node2D"]
 script = ExtResource("1_xhdup")
 
 [node name="BackgroundStars" parent="." instance=ExtResource("2_7cpy8")]
 
-[node name="ButtonUpgrade" parent="." instance=ExtResource("3_kdyvl")]
+[node name="MaxShildUpgrade" parent="." instance=ExtResource("3_kdyvl")]
+position = Vector2(988, 167)
+globalName = "settingPlayerMaxShield"
 
-[node name="Panel-border-001" type="Sprite2D" parent="."]
-position = Vector2(942, 404)
-scale = Vector2(4.01042, 4.01042)
-texture = ExtResource("5_k5rj4")
+[node name="MaxVelocityUpgrade" parent="." instance=ExtResource("3_kdyvl")]
+position = Vector2(381, 142)
+description = "Ship Max Velocity"
 
-[connection signal="button_pressed" from="ButtonUpgrade" to="." method="_on_button_upgrade_button_pressed"]
+[node name="AccellerationUpgrade" parent="." instance=ExtResource("3_kdyvl")]
+position = Vector2(461, 145)
+globalName = "settingPlayerAccel"
+description = "Ship Accelleration"
+
+[node name="BulletVelocityUpgrade" parent="." instance=ExtResource("3_kdyvl")]
+position = Vector2(543, 141)
+
+[node name="BulletPerFireUpgrade" parent="." instance=ExtResource("3_kdyvl")]
+position = Vector2(759, 139)
+
+[node name="AutoFireUpgrade" parent="." instance=ExtResource("3_kdyvl")]
+position = Vector2(851, 147)
+
+[node name="DropValueUpgrade" parent="." instance=ExtResource("3_kdyvl")]
+position = Vector2(931, 161)
+globalName = "settingDropValue"
+
+[node name="DropVelocityUpgrade" parent="." instance=ExtResource("3_kdyvl")]
+position = Vector2(631, 146)
+
+[node name="Upgrade" parent="." instance=ExtResource("3_kdyvl")]
+position = Vector2(516, 248)
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 483.0
+offset_top = 420.0
+offset_right = 528.0
+offset_bottom = 451.0
+text = "Return To Menu"
+
+[connection signal="button_pressed" from="MaxVelocityUpgrade" to="." method="_on_max_velocity_upgrade_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -7,6 +7,7 @@ extends Node2D
 @onready var price: Label = $Price
 @onready var star_medium: Sprite2D = $StarMedium
 
+@export var globalName: String = "settingPlayerMaxVelocity"
 @export var icon: String = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/steps.png"
 @export var how_many_click_i_can_do: float = 10
 @export var description: String = "test"
@@ -14,7 +15,6 @@ extends Node2D
 @export var priceAddNextLevel: int = 50
 
 var currentPrice: int
-var howManyTimePressButton: int = 0
 
 signal button_pressed
 
@@ -27,29 +27,19 @@ func _ready() -> void:
 	
 	currentPrice = priceInitial
 	price.text = str(currentPrice)
+	
+	setCurrentStateOfButton()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func _on_button_pressed() -> void:
-	howManyTimePressButton += 1
-	if howManyTimePressButton <= how_many_click_i_can_do: 
-		button_pressed.emit(currentPrice, howManyTimePressButton)
-		# menage green part of button
-		GC.settingPlayerMaxVelocity += 1
-		panel.size.y += (36 / how_many_click_i_can_do)
-		panel.position.y -= (36 / how_many_click_i_can_do)
-		
-		#update price
-		currentPrice += priceAddNextLevel
-		price.text = str(currentPrice)
-		
-		if howManyTimePressButton == how_many_click_i_can_do:
-			price.text = "Max"
-			star_medium.visible = false
-
-
+	if GC[globalName] <= how_many_click_i_can_do - 1: 
+		GC[globalName] += 1
+	updateButton()
+	button_pressed.emit(currentPrice, GC[globalName])
 
 func _on_button_mouse_entered() -> void:
 	descriptionLabel.visible = true
@@ -57,3 +47,26 @@ func _on_button_mouse_entered() -> void:
 
 func _on_button_mouse_exited() -> void:
 	descriptionLabel.visible = false
+
+
+func setCurrentStateOfButton():
+	print(globalName)
+	print(GC[globalName])
+	GC[globalName] = GC[globalName]
+	updateButton()
+
+	
+func updateButton():
+
+	# menage green part of button
+	
+	panel.size.y = 0 + (36 / how_many_click_i_can_do) * GC[globalName]
+	panel.position.y = 19 - (36 / how_many_click_i_can_do) * GC[globalName]
+	
+	#update price
+	currentPrice = priceInitial + (priceAddNextLevel * GC[globalName])
+	price.text = str(currentPrice)
+	
+	if GC[globalName] == how_many_click_i_can_do:
+		price.text = "Max"
+		star_medium.visible = false

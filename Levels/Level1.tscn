@@ -26,7 +26,6 @@ spawn_radius = 700.0
 [node name="EnemySpawn2" parent="." instance=ExtResource("4_05pb0")]
 
 [node name="EnemySpawn3" parent="." instance=ExtResource("5_xcayt")]
-spawn_radius = 800.0
 
 [node name="Drop" type="Label" parent="."]
 offset_right = 40.0
