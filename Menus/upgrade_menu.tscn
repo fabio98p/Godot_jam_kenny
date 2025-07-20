@@ -16,6 +16,7 @@ globalName = "settingPlayerMaxShield"
 icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/progress_full.png"
 how_many_click_i_can_do = 8.0
 description = "upgrade Max Shild"
+priceInitial = 10
 
 [node name="MaxVelocityUpgrade" parent="." instance=ExtResource("3_kdyvl")]
 position = Vector2(545, 176)

@@ -49,7 +49,7 @@ func _on_auto_fire_upgrade_button_pressed() -> void:
 		GC.autoFire = true
 
 func _on_drop_value_upgrade_button_pressed() -> void:
-	GC.bulletVelocity = 1 + GC.settingBulletVelocity
+	GC.dropValue = 1 + GC.dropValue
 
 func _on_drop_velocity_upgrade_button_pressed() -> void:
 	GC.dropVelocity = 0 + (GC.settingDropVelocity * 100)
