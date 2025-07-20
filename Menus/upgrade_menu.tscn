@@ -16,30 +16,30 @@ globalName = "settingPlayerMaxShield"
 icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/progress_full.png"
 how_many_click_i_can_do = 8.0
 description = "upgrade Max Shild"
-priceInitial = 10
-priceAddNextLevel = 20
+priceInitial = 5
+priceAddNextLevel = 10
 
 [node name="MaxVelocityUpgrade" parent="." instance=ExtResource("3_kdyvl")]
 position = Vector2(545, 176)
 description = "Ship Max Velocity"
-priceInitial = 10
-priceAddNextLevel = 20
+priceInitial = 5
+priceAddNextLevel = 10
 
 [node name="AccellerationUpgrade" parent="." instance=ExtResource("3_kdyvl")]
 position = Vector2(634, 174)
 globalName = "settingPlayerAccel"
 icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/resize_a_cross.png"
 description = "Ship Accelleration"
-priceInitial = 10
-priceAddNextLevel = 20
+priceInitial = 5
+priceAddNextLevel = 10
 
 [node name="BulletVelocityUpgrade" parent="." instance=ExtResource("3_kdyvl")]
 position = Vector2(454, 275)
 globalName = "settingBulletVelocity"
 icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/tool_bow.png"
 description = "Ship Bullet Velocity"
-priceInitial = 10
-priceAddNextLevel = 20
+priceInitial = 5
+priceAddNextLevel = 10
 
 [node name="BulletPerFireUpgrade" parent="." instance=ExtResource("3_kdyvl")]
 position = Vector2(631, 279)
@@ -47,7 +47,8 @@ globalName = "settingBulletPerFire"
 icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/target_a.png"
 how_many_click_i_can_do = 8.0
 description = "Fire rate of autofire (autofire nedded)"
-priceAddNextLevel = 30
+priceInitial = 10
+priceAddNextLevel = 10
 
 [node name="AutoFireUpgrade" parent="." instance=ExtResource("3_kdyvl")]
 position = Vector2(543, 278)
@@ -55,7 +56,7 @@ globalName = "SettingAutoFire"
 icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/target_round_a.png"
 how_many_click_i_can_do = 1.0
 description = "Auto Fire"
-priceInitial = 200
+priceInitial = 30
 
 [node name="DropValueUpgrade" parent="." instance=ExtResource("3_kdyvl")]
 position = Vector2(489, 376)
@@ -71,8 +72,8 @@ position = Vector2(594, 377)
 globalName = "settingDropVelocity"
 icon = "res://Assets/kenney_simple-space/PNG/Default/star_small.png"
 description = "Drop Velocity"
-priceInitial = 10
-priceAddNextLevel = 20
+priceInitial = 5
+priceAddNextLevel = 10
 
 [node name="BackButton" type="Button" parent="."]
 offset_left = 473.0
@@ -94,6 +95,15 @@ position = Vector2(1125, 22)
 scale = Vector2(0.348565, 0.348565)
 texture = ExtResource("4_4h6xr")
 
+[node name="GiveAllUpgrade" type="Button" parent="."]
+offset_left = 918.0
+offset_top = 554.0
+offset_right = 1133.0
+offset_bottom = 631.0
+text = "if you want all the upgrade
+ without farm
+ press here"
+
 [connection signal="button_pressed" from="MaxShildUpgrade" to="." method="_on_max_shild_upgrade_button_pressed"]
 [connection signal="button_pressed" from="MaxVelocityUpgrade" to="." method="_on_max_velocity_upgrade_button_pressed"]
 [connection signal="button_pressed" from="AccellerationUpgrade" to="." method="_on_accelleration_upgrade_button_pressed"]
@@ -103,3 +113,4 @@ texture = ExtResource("4_4h6xr")
 [connection signal="button_pressed" from="DropValueUpgrade" to="." method="_on_drop_value_upgrade_button_pressed"]
 [connection signal="button_pressed" from="DropVelocityUpgrade" to="." method="_on_drop_velocity_upgrade_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="GiveAllUpgrade" to="." method="_on_give_all_upgrade_pressed"]
