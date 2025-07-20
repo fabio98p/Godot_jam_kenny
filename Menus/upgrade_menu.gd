@@ -18,3 +18,6 @@ func _on_speed_upgrade_pressed() -> void:
 	GC.settingPlayerMaxVelocity += 1
 	speed_upgrade_panel.size.y += (1 * 3.6)
 	speed_upgrade_panel.position.y -= (1 * 3.6)
+
+func _on_button_upgrade_button_pressed(costUpgrade, levelUpgrade) -> void:
+	GC.settingPlayerMaxVelocity == levelUpgrade
