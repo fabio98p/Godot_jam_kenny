@@ -17,49 +17,62 @@ icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/progress_full.png"
 how_many_click_i_can_do = 8.0
 description = "upgrade Max Shild"
 priceInitial = 10
+priceAddNextLevel = 20
 
 [node name="MaxVelocityUpgrade" parent="." instance=ExtResource("3_kdyvl")]
 position = Vector2(545, 176)
 description = "Ship Max Velocity"
+priceInitial = 10
+priceAddNextLevel = 20
 
 [node name="AccellerationUpgrade" parent="." instance=ExtResource("3_kdyvl")]
 position = Vector2(634, 174)
 globalName = "settingPlayerAccel"
 icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/resize_a_cross.png"
 description = "Ship Accelleration"
+priceInitial = 10
+priceAddNextLevel = 20
 
 [node name="BulletVelocityUpgrade" parent="." instance=ExtResource("3_kdyvl")]
 position = Vector2(454, 275)
 globalName = "settingBulletVelocity"
 icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/tool_bow.png"
 description = "Ship Bullet Velocity"
+priceInitial = 10
+priceAddNextLevel = 20
 
 [node name="BulletPerFireUpgrade" parent="." instance=ExtResource("3_kdyvl")]
-position = Vector2(545, 276)
+position = Vector2(631, 279)
 globalName = "settingBulletPerFire"
 icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/target_a.png"
 how_many_click_i_can_do = 8.0
 description = "Fire rate of autofire (autofire nedded)"
+priceAddNextLevel = 30
 
 [node name="AutoFireUpgrade" parent="." instance=ExtResource("3_kdyvl")]
-position = Vector2(634, 277)
+position = Vector2(543, 278)
 globalName = "SettingAutoFire"
 icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/target_round_a.png"
 how_many_click_i_can_do = 1.0
 description = "Auto Fire"
-priceInitial = 300
+priceInitial = 200
 
 [node name="DropValueUpgrade" parent="." instance=ExtResource("3_kdyvl")]
 position = Vector2(489, 376)
 globalName = "settingDropValue"
 icon = "res://Assets/kenney_simple-space/PNG/Default/star_large.png"
+how_many_click_i_can_do = 5.0
 description = "Drop Value"
+priceInitial = 20
+priceAddNextLevel = 30
 
 [node name="DropVelocityUpgrade" parent="." instance=ExtResource("3_kdyvl")]
 position = Vector2(594, 377)
 globalName = "settingDropVelocity"
 icon = "res://Assets/kenney_simple-space/PNG/Default/star_small.png"
 description = "Drop Velocity"
+priceInitial = 10
+priceAddNextLevel = 20
 
 [node name="BackButton" type="Button" parent="."]
 offset_left = 473.0

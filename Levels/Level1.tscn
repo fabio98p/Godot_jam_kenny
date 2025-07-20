@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bhhol2il3g0xj" path="res://EnemySpawn/EnemySpawn2/enemy_spawn2.tscn" id="4_05pb0"]
 [ext_resource type="Texture2D" uid="uid://b2fqdy687p7qk" path="res://Assets/kenney_cursor-pack/PNG/Basic/Default/progress_CCW_75.png" id="5_104vp"]
 [ext_resource type="PackedScene" uid="uid://bff3u7fytgoow" path="res://EnemySpawn/enemy_spawn.tscn" id="5_nutv8"]
-[ext_resource type="PackedScene" uid="uid://c11obdil7ks26" path="res://EnemySpawn/EnemySpawn3/enemy_spawn_3.tscn" id="5_xcayt"]
 [ext_resource type="Texture2D" uid="uid://cxq24mwh41kht" path="res://Assets/kenney_cursor-pack/PNG/Basic/Default/progress_full.png" id="6_3momc"]
 [ext_resource type="Texture2D" uid="uid://ba24y3f2g1x71" path="res://Assets/kenney_cursor-pack/PNG/Basic/Default/progress_CCW_50.png" id="8_xcayt"]
+[ext_resource type="PackedScene" uid="uid://d0rmo356g40de" path="res://EnemyShips/EnemyShip3/EnemyShip3.tscn" id="9_tuji2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iotdp"]
 
@@ -28,11 +28,14 @@ position = Vector2(576, 324)
 scale = Vector2(3.0161, -2.61927)
 spawn_radius = 700.0
 
+[node name="EnemySpawn4" parent="." instance=ExtResource("5_nutv8")]
+position = Vector2(576, 324)
+scale = Vector2(3.0161, -2.61927)
+spawn_radius = 700.0
+enemy_to_spawn = ExtResource("9_tuji2")
+
 [node name="EnemySpawn2" parent="." instance=ExtResource("4_05pb0")]
 spawn_rate = 4.0
-
-[node name="EnemySpawn3" parent="." instance=ExtResource("5_xcayt")]
-spawn_rate = 2.0
 
 [node name="Drop" type="Label" parent="."]
 offset_right = 40.0

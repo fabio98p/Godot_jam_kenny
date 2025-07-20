@@ -10,7 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	drop_label.text = str(GC.totalDrop)
+	drop_label.text = str(int(GC.totalDrop))
 
 
 func _on_speed_upgrade_pressed() -> void:
@@ -49,7 +49,7 @@ func _on_auto_fire_upgrade_button_pressed() -> void:
 		GC.autoFire = true
 
 func _on_drop_value_upgrade_button_pressed() -> void:
-	GC.dropValue = 1 + GC.dropValue
+	GC.dropValue = 1 + int(GC.dropValue)
 
 func _on_drop_velocity_upgrade_button_pressed() -> void:
 	GC.dropVelocity = 0 + (GC.settingDropVelocity * 100)

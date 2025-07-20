@@ -5,6 +5,7 @@ extends Node2D
 @export var enemy_to_spawn : PackedScene
 
 @export var spawn_rate: float = 1
+var can_spawn = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawn_enemy_loop()
@@ -17,7 +18,8 @@ func _process(delta: float) -> void:
 func spawn_enemy_loop():
 	while true:
 		await get_tree().create_timer(spawn_rate).timeout
-		spawn_enemy_on_circumference()
+		if can_spawn:
+			spawn_enemy_on_circumference()
 
 func spawn_enemy_on_circumference():
 

@@ -112,6 +112,7 @@ _data = {
 
 [node name="EnemyShip3" type="RigidBody2D"]
 light_mask = 32
+collision_layer = 32
 script = ExtResource("1_ytgo5")
 drop_scene = ExtResource("3_vt4dl")
 
@@ -124,7 +125,7 @@ texture = ExtResource("2_ytgo5")
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(3, 0)
 scale = Vector2(0.598717, 0.598717)
-collision_layer = 16
+collision_layer = 48
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

@@ -5,8 +5,9 @@ extends Node2D
 @onready var player_ship: CharacterBody2D = $PlayerShip
 @onready var ui_shield: Sprite2D = $"UI shield"
 @onready var ui_shield_2: Sprite2D = $"UI shield2"
+@onready var enemy_spawn: Node2D = $EnemySpawn
 @onready var enemy_spawn_2: Node2D = $EnemySpawn2
-@onready var enemy_spawn_3: Node2D = $EnemySpawn3
+@onready var enemy_spawn_3: Node2D = $EnemySpawn4
 
 @export var shield_textures: Array[Texture2D]
 
@@ -23,6 +24,7 @@ func _process(delta: float) -> void:
 		
 
 func difficultyIncrese():
+	enemy_spawn.can_spawn = true
 	await get_tree().create_timer(20).timeout
 	enemy_spawn_2.can_spawn = true
 	await get_tree().create_timer(40).timeout
