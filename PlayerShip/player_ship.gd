@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var bullet_sound: AudioStreamPlayer2D = $BulletSound
+@onready var shield: Sprite2D = $Shield
 
 @export var bullet_scene: PackedScene
 
@@ -55,8 +56,11 @@ func spownBullet():
 	bullet_instance.global_rotation_degrees = global_rotation_degrees + 90
 
 func _on_enemy_bullet_collision_area_entered(area: Area2D) -> void:
+	print(current_shield)
 	current_shield -= 1
 	if current_shield == 0:
+		shield.visible = false
+	if current_shield == -1:
 		GC.setTotalDrop()
-		#get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
+		get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 		 

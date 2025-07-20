@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://biompsysi5h3h"]
+[gd_scene load_steps=10 format=3 uid="uid://biompsysi5h3h"]
 
 [ext_resource type="PackedScene" uid="uid://f46qj3kybku2" path="res://Timer/Timer.tscn" id="1_fhqol"]
 [ext_resource type="Script" uid="uid://bq0aquwa50sej" path="res://Levels/level_1.gd" id="1_iotdp"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bhhol2il3g0xj" path="res://EnemySpawn/EnemySpawn2/enemy_spawn2.tscn" id="4_05pb0"]
 [ext_resource type="PackedScene" uid="uid://bff3u7fytgoow" path="res://EnemySpawn/enemy_spawn.tscn" id="5_nutv8"]
 [ext_resource type="PackedScene" uid="uid://c11obdil7ks26" path="res://EnemySpawn/EnemySpawn3/enemy_spawn_3.tscn" id="5_xcayt"]
+[ext_resource type="Texture2D" uid="uid://ba24y3f2g1x71" path="res://Assets/kenney_cursor-pack/PNG/Basic/Default/progress_CCW_50.png" id="8_xcayt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iotdp"]
 
@@ -68,3 +69,8 @@ collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapBorder/right"]
 shape = SubResource("WorldBoundaryShape2D_iotdp")
+
+[node name="UI shield" type="Sprite2D" parent="."]
+position = Vector2(577, 587)
+scale = Vector2(1.36826, 1.36826)
+texture = ExtResource("8_xcayt")

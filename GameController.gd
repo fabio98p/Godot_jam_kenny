@@ -3,6 +3,7 @@ extends Node
 var totalDrop: float = 200
 var collectedDrop: int = 0
 var playerShipPosition: Vector2 = Vector2(0,0)
+var currentShield: int
 
 #upgrade 
 var playerMaxShield: int = 3

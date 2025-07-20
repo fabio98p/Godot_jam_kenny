@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://daynif12s5yqx"]
+[gd_scene load_steps=8 format=3 uid="uid://daynif12s5yqx"]
 
 [ext_resource type="Texture2D" uid="uid://bsmovbdm4sv0l" path="res://Assets/kenney_simple-space/PNG/Default/ship_G.png" id="1_lf2u6"]
 [ext_resource type="Script" uid="uid://cvejd7xxnluk6" path="res://PlayerShip/player_ship.gd" id="1_v8trk"]
 [ext_resource type="PackedScene" uid="uid://dibpyq77kafsb" path="res://PlayerBullet/PlayerBullet.tscn" id="2_pt0d1"]
 [ext_resource type="AudioStream" uid="uid://dir6yegtgdeho" path="res://Assets/kenney_sci-fi-sounds/Audio/laserRetro_000.ogg" id="4_f2hcq"]
+[ext_resource type="Texture2D" uid="uid://ce4rayd1sfrot" path="res://Assets/kenney_particle-pack/PNG (Transparent)/circle_01.png" id="5_lw361"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8trk"]
 radius = 14.0357
@@ -33,5 +34,11 @@ shape = SubResource("CircleShape2D_pt0d1")
 [node name="BulletSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_f2hcq")
 volume_db = -36.648
+
+[node name="Shield" type="Sprite2D" parent="."]
+modulate = Color(0.419608, 1, 1, 1)
+position = Vector2(-3, 0)
+scale = Vector2(0.189764, 0.189764)
+texture = ExtResource("5_lw361")
 
 [connection signal="area_entered" from="EnemyBulletCollision" to="." method="_on_enemy_bullet_collision_area_entered"]
