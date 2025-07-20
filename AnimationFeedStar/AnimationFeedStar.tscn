@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ifgqtvl28fyu"]
+
+[ext_resource type="Script" uid="uid://bgrt8gr1msb7r" path="res://AnimationFeedStar/animation_feed_star.gd" id="1_vrya7"]
+[ext_resource type="PackedScene" uid="uid://dwk1r7ew8amff" path="res://AnimationFeedStar/SpriteForAnimation.tscn" id="2_nt2l0"]
+
+[node name="AnimationFeedStar" type="Node2D"]
+script = ExtResource("1_vrya7")
+animated_sprite_scene = ExtResource("2_nt2l0")

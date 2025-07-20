@@ -5,6 +5,8 @@ extends Control
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var animation_feed_star: Node2D = $AnimationFeedStar
+
 @onready var button_start: Button = $ButtonStart
 @onready var button_exit: Button = $ButtonExit
 var totalDrop: int
@@ -14,6 +16,9 @@ func _ready() -> void:
 	newScale=star_container.scale.x+GC.totalDrop/60
 	star_container.scale = Vector2(newScale, newScale)
 	star.texture = load(GC.setDimensionAndSpriteStar())
+	await get_tree().create_timer(2).timeout 
+	animation_feed_star.num_sprites_to_spawn = 100
+	animation_feed_star.start_animation()
 	
 
 func _on_button_start_pressed() -> void:

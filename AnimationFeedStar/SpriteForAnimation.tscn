@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwk1r7ew8amff"]
+
+[ext_resource type="Script" uid="uid://dhasfc7bihqqg" path="res://AnimationFeedStar/sprite_for_animation.gd" id="1_dggy6"]
+[ext_resource type="Texture2D" uid="uid://byjxhxfe466jr" path="res://Assets/kenney_simple-space/PNG/Default/star_tiny.png" id="1_io4pj"]
+
+[node name="SpriteForAnimation" type="Sprite2D"]
+texture = ExtResource("1_io4pj")
+script = ExtResource("1_dggy6")
