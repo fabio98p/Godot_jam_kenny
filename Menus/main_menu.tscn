@@ -81,10 +81,10 @@ tracks/0/path = NodePath("PlayerShip2:can_move")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.99),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, true]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -113,7 +113,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_2k0p2"]
 resource_name = "PlayerStartGame"
-length = 5.0
+length = 1.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -121,10 +121,10 @@ tracks/0/path = NodePath("PlayerShip2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.999498),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(576, 334)]
+"values": [Vector2(698, 318)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -133,10 +133,10 @@ tracks/1/path = NodePath("PlayerShip2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.999498),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-1.55704]
+"values": [-0.911062]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -145,7 +145,7 @@ tracks/2/path = NodePath("StarContainer/Star:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.01571, 3.99799),
+"times": PackedFloat32Array(0.0441434, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.2, 0.2), Vector2(0.5, 0.5)]
@@ -157,7 +157,7 @@ tracks/3/path = NodePath("StarContainer/Star:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.0103, 3.99799),
+"times": PackedFloat32Array(0.0387334, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -169,7 +169,7 @@ tracks/4/path = NodePath("BackgroundStars:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.0049, 5),
+"times": PackedFloat32Array(0.0333334, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5)]
@@ -181,7 +181,7 @@ tracks/5/path = NodePath("BackgroundStars:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(1, 5),
+"times": PackedFloat32Array(0.0284334, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-282, -194)]
@@ -193,7 +193,7 @@ tracks/6/path = NodePath("ButtonStart:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(1.0103, 4.00339),
+"times": PackedFloat32Array(0.0387334, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -205,7 +205,7 @@ tracks/7/path = NodePath("ButtonPowerUp:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(1.0103, 4.00339),
+"times": PackedFloat32Array(0.0387334, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -217,7 +217,7 @@ tracks/8/path = NodePath("ButtonExit:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(1.0103, 4.00339),
+"times": PackedFloat32Array(0.0387334, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]

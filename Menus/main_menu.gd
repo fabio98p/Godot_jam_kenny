@@ -13,17 +13,17 @@ var totalDrop: int
 var newScale
 
 func _ready() -> void:
-	newScale=star_container.scale.x+GC.totalDrop/60
+	newScale=star_container.scale.x+GC.totalDrop/600
 	star_container.scale = Vector2(newScale, newScale)
 	star.texture = load(GC.setDimensionAndSpriteStar())
+	animation_feed_star.num_sprites_to_spawn = GC.collectedDrop
+	GC.setTotalDrop()
 	await get_tree().create_timer(2).timeout 
-	animation_feed_star.num_sprites_to_spawn = 100
 	animation_feed_star.start_animation()
 	
-
 func _on_button_start_pressed() -> void:
 	animation_player.play("PlayerStartGame")
-	await get_tree().create_timer(5).timeout 
+	await get_tree().create_timer(1.6).timeout 
 	get_tree().change_scene_to_file("res://Levels/Level1.tscn")
 
 func _on_button_power_up_pressed() -> void:

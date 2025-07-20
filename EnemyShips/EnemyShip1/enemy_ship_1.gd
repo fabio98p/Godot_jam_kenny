@@ -22,8 +22,9 @@ func _ready() -> void:
 	startFireBulletLoop()
 
 func _physics_process(delta: float) -> void:
-	look_at(GC.getPlayerPosition())
-	enemyMoviment(delta)
+	if !GC.stopGame:
+		look_at(GC.getPlayerPosition())
+		enemyMoviment(delta)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	#nave colpita e distrutta
@@ -36,10 +37,11 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	spownDrop()
 
 func startFireBulletLoop():
-	while true:
-		await get_tree().create_timer(bulletPerSecond).timeout
-		if can_shoot:
-			spownBullet()
+	if !GC.stopGame:
+		while true:
+			await get_tree().create_timer(bulletPerSecond).timeout
+			if can_shoot:
+				spownBullet()
 
 func spownBullet():
 	var bullet_instance = bullet_scene.instantiate()

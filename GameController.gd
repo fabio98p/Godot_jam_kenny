@@ -29,6 +29,8 @@ var settingDropVelocity: int = 0
 
 var SettingShildDrop: float = 0
 
+var stopGame: bool = false
+
 func getPlayerPosition():
 	return playerShipPosition
 	

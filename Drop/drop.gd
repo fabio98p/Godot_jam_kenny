@@ -8,8 +8,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	look_at(GC.getPlayerPosition())
-	position += transform.x * GC.dropVelocity * delta
+	if !GC.stopGame:
+		look_at(GC.getPlayerPosition())
+		position += transform.x * GC.dropVelocity * delta
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	GC.setCollectDrop()

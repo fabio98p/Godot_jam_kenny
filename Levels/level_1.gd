@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	drop.text = str( GC.collectedDrop )
 	setUiShield()
 	difficultyIncrese()
-	
+		
 
 func difficultyIncrese():
 	await get_tree().create_timer(10).timeout

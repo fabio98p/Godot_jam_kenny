@@ -7,7 +7,8 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position -= transform.y * GC.bulletVelocity * delta
+	if !GC.stopGame:
+		position -= transform.y * GC.bulletVelocity * delta
 
 func destroyItself():
 	queue_free()

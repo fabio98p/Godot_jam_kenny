@@ -1,8 +1,8 @@
 extends Node2D
 
 @export var animated_sprite_scene: PackedScene # Assegna qui la scena AnimatedSprite.tscn
-@export var spawn_point_a: Vector2 = Vector2(100, 100) # Punto di partenza per gli sprite
-@export var spawn_point_b: Vector2 = Vector2(700, 500) # Punto di arrivo per gli sprite
+@export var spawn_point_a: Vector2 = Vector2(698.0, 318.0) # Punto di partenza per gli sprite
+@export var spawn_point_b: Vector2 = Vector2(881.0, 176.0) # Punto di arrivo per gli sprite
 @export var movement_duration: float = 2.0    # Durata del movimento di ogni sprite in secondi
 @export var random_offset_range: float = 50.0 # Forza della casualità (in pixel) per la traiettoria
 var num_sprites_to_spawn: int = 10     # Quanti sprite generare

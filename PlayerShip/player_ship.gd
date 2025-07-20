@@ -34,34 +34,36 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	if can_move:
-		GC.setPlayerPosition(position)
-		
-		#handle the movement right and left
-		var directionx := Input.get_axis("Left", "Right")
-		if directionx:
-			velocity.x = move_toward(velocity.x, directionx * max_velocity, accel * delta)
-		else:
-			velocity.x = move_toward(velocity.x, 0, accel * delta) 
+	if !GC.stopGame:
+		if can_move:
+			GC.setPlayerPosition(position)
 			
-		#handle the movement Up and Downaw
-		var directiony := Input.get_axis("Up", "Down")
-		if directiony:
-			velocity.y = move_toward(velocity.y, directiony * max_velocity, accel * delta)
-		else:
-			velocity.y = move_toward(velocity.y, 0, accel * delta) 
+			#handle the movement right and left
+			var directionx := Input.get_axis("Left", "Right")
+			if directionx:
+				velocity.x = move_toward(velocity.x, directionx * max_velocity, accel * delta)
+			else:
+				velocity.x = move_toward(velocity.x, 0, accel * delta) 
+				
+			#handle the movement Up and Downaw
+			var directiony := Input.get_axis("Up", "Down")
+			if directiony:
+				velocity.y = move_toward(velocity.y, directiony * max_velocity, accel * delta)
+			else:
+				velocity.y = move_toward(velocity.y, 0, accel * delta) 
 
-		#handle ship rotation in direction to the mouse
-		look_at(get_global_mouse_position())
-		
-		move_and_slide()
+			#handle ship rotation in direction to the mouse
+			look_at(get_global_mouse_position())
+			
+			move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if can_move:
-		if !GC.autoFire: # Sparo manuale solo se l'autofire NON è attivo
-			if event.is_action_pressed("Fire"):
-				bullet_sound.play()
-				spownBullet()
+	if !GC.stopGame:
+		if can_move:
+			if !GC.autoFire: # Sparo manuale solo se l'autofire NON è attivo
+				if event.is_action_pressed("Fire"):
+					bullet_sound.play()
+					spownBullet()
 
 #func _input(event: InputEvent) -> void:
 	#if can_move:
@@ -94,6 +96,5 @@ func _on_enemy_bullet_collision_area_entered(area: Area2D) -> void:
 	if current_shield == 0:
 		shield.visible = false
 	if current_shield == -1:
-		GC.setTotalDrop()
 		get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 		 

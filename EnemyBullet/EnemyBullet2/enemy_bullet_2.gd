@@ -8,14 +8,16 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position -= transform.y * velocity * delta
+	if !GC.stopGame:
+		position -= transform.y * velocity * delta
 
 func destroyItself():
 	queue_free()
 	
 func destroyItselfAfterTime(time):
-	await get_tree().create_timer(time).timeout
-	queue_free()
+	if !GC.stopGame:
+		await get_tree().create_timer(time).timeout
+		queue_free()
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
