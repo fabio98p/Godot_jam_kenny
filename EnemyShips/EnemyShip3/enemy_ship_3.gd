@@ -55,7 +55,6 @@ func spownDrop():
 
 
 func _on_explosion_finished() -> void:
-	print("esploso")
 	queue_free()
 
 func enemyMoviment(delta):

@@ -59,7 +59,6 @@ func spownDrop():
 
 
 func _on_explosion_finished() -> void:
-	print("esploso")
 	# Emette il segnale prima
 	if assigned_corner_name:
 		emit_signal("enemy_died", assigned_corner_name)

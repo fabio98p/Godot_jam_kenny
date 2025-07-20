@@ -70,4 +70,3 @@ func spawn_enemy_to_corner():
 func on_enemy_died(corner_name_param: String):
 	if angolo_nemici.has(corner_name_param):
 		angolo_nemici[corner_name_param] = false
-		print("Angolo ", corner_name_param, " è stato liberato.")

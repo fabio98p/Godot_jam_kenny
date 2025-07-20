@@ -1,18 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://biompsysi5h3h"]
+[gd_scene load_steps=14 format=3 uid="uid://biompsysi5h3h"]
 
 [ext_resource type="PackedScene" uid="uid://f46qj3kybku2" path="res://Timer/Timer.tscn" id="1_fhqol"]
 [ext_resource type="Script" uid="uid://bq0aquwa50sej" path="res://Levels/level_1.gd" id="1_iotdp"]
 [ext_resource type="PackedScene" uid="uid://daynif12s5yqx" path="res://PlayerShip/PlayerShip.tscn" id="1_w77jt"]
 [ext_resource type="PackedScene" uid="uid://cog77nw86jt7g" path="res://Background/BackgroundStars.tscn" id="2_nutv8"]
+[ext_resource type="Texture2D" uid="uid://b41hiaucqxv4d" path="res://Assets/kenney_cursor-pack/PNG/Basic/Default/progress_empty.png" id="2_tuji2"]
+[ext_resource type="Texture2D" uid="uid://cct1rrqe7psn" path="res://Assets/kenney_cursor-pack/PNG/Basic/Default/progress_CCW_25.png" id="3_f5cpa"]
 [ext_resource type="PackedScene" uid="uid://bhhol2il3g0xj" path="res://EnemySpawn/EnemySpawn2/enemy_spawn2.tscn" id="4_05pb0"]
+[ext_resource type="Texture2D" uid="uid://b2fqdy687p7qk" path="res://Assets/kenney_cursor-pack/PNG/Basic/Default/progress_CCW_75.png" id="5_104vp"]
 [ext_resource type="PackedScene" uid="uid://bff3u7fytgoow" path="res://EnemySpawn/enemy_spawn.tscn" id="5_nutv8"]
 [ext_resource type="PackedScene" uid="uid://c11obdil7ks26" path="res://EnemySpawn/EnemySpawn3/enemy_spawn_3.tscn" id="5_xcayt"]
+[ext_resource type="Texture2D" uid="uid://cxq24mwh41kht" path="res://Assets/kenney_cursor-pack/PNG/Basic/Default/progress_full.png" id="6_3momc"]
 [ext_resource type="Texture2D" uid="uid://ba24y3f2g1x71" path="res://Assets/kenney_cursor-pack/PNG/Basic/Default/progress_CCW_50.png" id="8_xcayt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iotdp"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_iotdp")
+shield_textures = Array[Texture2D]([ExtResource("2_tuji2"), ExtResource("3_f5cpa"), ExtResource("8_xcayt"), ExtResource("5_104vp"), ExtResource("6_3momc")])
 
 [node name="BackgroundStars" parent="." instance=ExtResource("2_nutv8")]
 position = Vector2(-282, -194)
@@ -71,5 +76,10 @@ shape = SubResource("WorldBoundaryShape2D_iotdp")
 
 [node name="UI shield" type="Sprite2D" parent="."]
 position = Vector2(577, 587)
+scale = Vector2(1.36826, 1.36826)
+texture = ExtResource("8_xcayt")
+
+[node name="UI shield2" type="Sprite2D" parent="."]
+position = Vector2(536, 587)
 scale = Vector2(1.36826, 1.36826)
 texture = ExtResource("8_xcayt")

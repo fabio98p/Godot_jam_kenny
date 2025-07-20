@@ -37,4 +37,3 @@ func spawn_enemy_on_circumference():
 	# Aggiunge il nuovo oggetto all'albero della scena
 	# Potrebbe essere il nodo padre dello spawner, o un nodo specifico per i nemici
 	get_parent().add_child(new_enemy)
-	print("Spawnato nemico a: ", new_enemy.global_position)

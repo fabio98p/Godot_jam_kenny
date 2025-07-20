@@ -58,6 +58,7 @@ func spownBullet():
 func _on_enemy_bullet_collision_area_entered(area: Area2D) -> void:
 	print(current_shield)
 	current_shield -= 1
+	GC.currentShield = current_shield
 	if current_shield == 0:
 		shield.visible = false
 	if current_shield == -1:

@@ -6,16 +6,16 @@ var playerShipPosition: Vector2 = Vector2(0,0)
 var currentShield: int
 
 #upgrade 
-var playerMaxShield: int = 4
+var playerMaxShield: int = 9
 var playerMaxVelocity: float = 500
 var playerAccel: float = 1500
 var bulletVelocity: int =  1
 var bulletPerFire: int = 1
-var autoFire: int = false
+var autoFire: bool = false
 var dropValue: int = 1
 var dropVelocity: float = 0
 
-var shildDrop: float = 0
+var shildDrop: float = 0 #falla a percentuale, ovvero la percentuale che un nemico lasci una cura
 
 #Upgrade value of setting
 var settingPlayerMaxShield: int = 0

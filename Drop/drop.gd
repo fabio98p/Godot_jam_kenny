@@ -12,6 +12,5 @@ func _process(delta: float) -> void:
 	position += transform.x * Velocity * delta
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("drop")
 	GC.setCollectDrop()
 	queue_free()
