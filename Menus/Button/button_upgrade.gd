@@ -37,7 +37,9 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	if GC[globalName] <= how_many_click_i_can_do - 1: 
-		GC[globalName] += 1
+		if GC.totalDrop >= currentPrice:
+			GC[globalName] += 1
+			GC.totalDrop -= currentPrice
 	updateButton()
 	button_pressed.emit(currentPrice, GC[globalName])
 
@@ -57,9 +59,7 @@ func setCurrentStateOfButton():
 
 	
 func updateButton():
-
 	# menage green part of button
-	
 	panel.size.y = 0 + (36 / how_many_click_i_can_do) * GC[globalName]
 	panel.position.y = 19 - (36 / how_many_click_i_can_do) * GC[globalName]
 	

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://7kf44tljrxkf"]
+[gd_scene load_steps=5 format=3 uid="uid://7kf44tljrxkf"]
 
 [ext_resource type="Script" uid="uid://dy8g4j5khdbtx" path="res://Menus/upgrade_menu.gd" id="1_xhdup"]
 [ext_resource type="PackedScene" uid="uid://cog77nw86jt7g" path="res://Background/BackgroundStars.tscn" id="2_7cpy8"]
 [ext_resource type="PackedScene" uid="uid://bcql74dv86uro" path="res://Menus/Button/ButtonUpgrade.tscn" id="3_kdyvl"]
+[ext_resource type="Texture2D" uid="uid://3ic8c83a4tle" path="res://Assets/kenney_simple-space/PNG/Default/star_large.png" id="4_4h6xr"]
 
 [node name="UpgradeMenu" type="Node2D"]
 script = ExtResource("1_xhdup")
@@ -10,43 +11,80 @@ script = ExtResource("1_xhdup")
 [node name="BackgroundStars" parent="." instance=ExtResource("2_7cpy8")]
 
 [node name="MaxShildUpgrade" parent="." instance=ExtResource("3_kdyvl")]
-position = Vector2(988, 167)
+position = Vector2(457, 174)
 globalName = "settingPlayerMaxShield"
+icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/progress_full.png"
+how_many_click_i_can_do = 8.0
+description = "upgrade Max Shild"
 
 [node name="MaxVelocityUpgrade" parent="." instance=ExtResource("3_kdyvl")]
-position = Vector2(381, 142)
+position = Vector2(545, 176)
 description = "Ship Max Velocity"
 
 [node name="AccellerationUpgrade" parent="." instance=ExtResource("3_kdyvl")]
-position = Vector2(461, 145)
+position = Vector2(634, 174)
 globalName = "settingPlayerAccel"
+icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/resize_a_cross.png"
 description = "Ship Accelleration"
 
 [node name="BulletVelocityUpgrade" parent="." instance=ExtResource("3_kdyvl")]
-position = Vector2(543, 141)
+position = Vector2(454, 275)
+globalName = "settingBulletVelocity"
+icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/tool_bow.png"
+description = "Ship Bullet Velocity"
 
 [node name="BulletPerFireUpgrade" parent="." instance=ExtResource("3_kdyvl")]
-position = Vector2(759, 139)
+position = Vector2(545, 276)
+globalName = "settingBulletPerFire"
+icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/target_a.png"
+description = "Add Ship Bullet Per Fire"
 
 [node name="AutoFireUpgrade" parent="." instance=ExtResource("3_kdyvl")]
-position = Vector2(851, 147)
+position = Vector2(634, 277)
+globalName = "SettingAutoFire"
+icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/target_round_a.png"
+how_many_click_i_can_do = 1.0
+description = "Auto Fire"
+priceInitial = 300
 
 [node name="DropValueUpgrade" parent="." instance=ExtResource("3_kdyvl")]
-position = Vector2(931, 161)
+position = Vector2(489, 376)
 globalName = "settingDropValue"
+icon = "res://Assets/kenney_simple-space/PNG/Default/star_large.png"
+description = "Drop Value"
 
 [node name="DropVelocityUpgrade" parent="." instance=ExtResource("3_kdyvl")]
-position = Vector2(631, 146)
-
-[node name="Upgrade" parent="." instance=ExtResource("3_kdyvl")]
-position = Vector2(516, 248)
+position = Vector2(594, 377)
+globalName = "settingDropVelocity"
+icon = "res://Assets/kenney_simple-space/PNG/Default/star_small.png"
+description = "Drop Velocity"
 
 [node name="BackButton" type="Button" parent="."]
-offset_left = 483.0
-offset_top = 420.0
-offset_right = 528.0
-offset_bottom = 451.0
+offset_left = 473.0
+offset_top = 473.0
+offset_right = 606.0
+offset_bottom = 504.0
 text = "Return To Menu"
 
+[node name="DropLabel" type="Label" parent="."]
+offset_left = 1035.0
+offset_top = 10.0
+offset_right = 1113.0
+offset_bottom = 33.0
+text = "5000"
+horizontal_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1125, 22)
+scale = Vector2(0.348565, 0.348565)
+texture = ExtResource("4_4h6xr")
+
+[connection signal="button_pressed" from="MaxShildUpgrade" to="." method="_on_max_shild_upgrade_button_pressed"]
 [connection signal="button_pressed" from="MaxVelocityUpgrade" to="." method="_on_max_velocity_upgrade_button_pressed"]
+[connection signal="button_pressed" from="AccellerationUpgrade" to="." method="_on_accelleration_upgrade_button_pressed"]
+[connection signal="button_pressed" from="BulletVelocityUpgrade" to="." method="_on_bullet_velocity_upgrade_button_pressed"]
+[connection signal="button_pressed" from="BulletPerFireUpgrade" to="." method="_on_bullet_per_fire_upgrade_button_pressed"]
+[connection signal="button_pressed" from="AutoFireUpgrade" to="." method="_on_auto_fire_upgrade_button_pressed"]
+[connection signal="button_pressed" from="DropValueUpgrade" to="." method="_on_drop_value_upgrade_button_pressed"]
+[connection signal="button_pressed" from="DropVelocityUpgrade" to="." method="_on_drop_velocity_upgrade_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
