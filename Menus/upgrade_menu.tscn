@@ -37,7 +37,8 @@ description = "Ship Bullet Velocity"
 position = Vector2(545, 276)
 globalName = "settingBulletPerFire"
 icon = "res://Assets/kenney_cursor-pack/PNG/Basic/Default/target_a.png"
-description = "Add Ship Bullet Per Fire"
+how_many_click_i_can_do = 8.0
+description = "Fire rate of autofire (autofire nedded)"
 
 [node name="AutoFireUpgrade" parent="." instance=ExtResource("3_kdyvl")]
 position = Vector2(634, 277)

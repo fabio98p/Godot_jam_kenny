@@ -39,10 +39,14 @@ func _on_bullet_velocity_upgrade_button_pressed() -> void:
 	GC.bulletVelocity = 300 + (GC.settingBulletVelocity * 100)
 
 func _on_bullet_per_fire_upgrade_button_pressed() -> void:
-	pass # Replace with function body.
-
+	print(GC.settingBulletPerFire)
+	GC.bulletPerFire = 0.6 - ( float(GC.settingBulletPerFire) / 18 ) 
+	print(GC.bulletPerFire)
+	
 func _on_auto_fire_upgrade_button_pressed() -> void:
-	pass # Replace with function body.
+	
+	if GC.SettingAutoFire == 1:
+		GC.autoFire = true
 
 func _on_drop_value_upgrade_button_pressed() -> void:
 	GC.bulletVelocity = 1 + GC.settingBulletVelocity
