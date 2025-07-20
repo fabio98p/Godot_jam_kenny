@@ -48,17 +48,17 @@ func setTotalDrop():
 	collectedDrop = 0
 	
 func setDimensionAndSpriteStar():
-		if  starDrop <= 5:
+		if  starDrop <= 15:
 			return "res://Assets/kenney_particle-pack/PNG (Transparent)/circle_01.png"
 		if starAnimation:
-			if starDrop > 5  && starDrop <= 59:
+			if starDrop > 15  && starDrop <= 39:
 				return "res://Assets/kenney_particle-pack/PNG (Transparent)/light_02.png"
-			if starDrop > 59 && starDrop <= 89:
+			if starDrop > 39 && starDrop <= 59:
 				#stella media 
 				return "res://Assets/kenney_particle-pack/PNG (Transparent)/light_03.png"
-			if starDrop > 89 && starDrop <= 109:
+			if starDrop > 59 && starDrop <= 89:
 				#stella grande 
 				return "res://Assets/kenney_particle-pack/PNG (Transparent)/light_01.png"
-			if starDrop > 109:
+			if starDrop > 99:
 				#stella completa
 				return "res://Assets/kenney_particle-pack/PNG (Transparent)/star_09.png"
