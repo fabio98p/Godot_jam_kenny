@@ -3,6 +3,11 @@ extends CharacterBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var bullet_sound: AudioStreamPlayer2D = $BulletSound
 @onready var shield: Sprite2D = $Shield
+@onready var fire_timer: Timer = $Fire_Timer
+
+@export var autofire: bool = false # Controlla se l'autofire è attivo
+@export var velocitàproiettiliautofire: float = 0.2
+
 
 @export var bullet_scene: PackedScene
 
@@ -18,6 +23,15 @@ func _ready() -> void:
 	accel = GC.playerAccel
 	max_shield = GC.playerMaxShield
 	current_shield = max_shield
+	
+	fire_timer.timeout.connect(_on_fire_timer_timeout)
+	fire_timer.wait_time = GC.bulletPerFire
+	fire_timer.one_shot = false
+
+	if autofire:
+		fire_timer.start()
+	
+	
 
 func _physics_process(delta: float) -> void:
 	if can_move:
@@ -44,10 +58,29 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if can_move:
-		if event.is_action_pressed("Fire"):
-			# instantiate bulletd
-			bullet_sound.play()
-			spownBullet()
+		if !GC.autoFire: # Sparo manuale solo se l'autofire NON è attivo
+			if event.is_action_pressed("Fire"):
+				bullet_sound.play()
+				spownBullet()
+
+#func _input(event: InputEvent) -> void:
+	#if can_move:
+		#if event.is_action_pressed("Fire"):
+			## instantiate bulletd
+			#bullet_sound.play()
+			#spownBullet()
+func _on_fire_timer_timeout():
+	print("sparo autofire")
+	if can_move and GC.autoFire: # Spara solo se il player può muoversi e l'autofire è attivo
+		bullet_sound.play()
+		spownBullet()
+
+func set_autofire_status(status: bool):
+	autofire = status
+	if autofire:
+		fire_timer.start()
+	else:
+		fire_timer.stop()
 
 func spownBullet():
 	var bullet_instance = bullet_scene.instantiate()
@@ -56,7 +89,6 @@ func spownBullet():
 	bullet_instance.global_rotation_degrees = global_rotation_degrees + 90
 
 func _on_enemy_bullet_collision_area_entered(area: Area2D) -> void:
-	print(current_shield)
 	current_shield -= 1
 	GC.currentShield = current_shield
 	if current_shield == 0:

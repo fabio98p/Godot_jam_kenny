@@ -31,7 +31,6 @@ func difficultyIncrese():
 		
 func setUiShield():
 	var currentShield = GC.currentShield
-	print(currentShield)
 
 	var max_base_shield = shield_textures.size() - 1
 
@@ -59,5 +58,4 @@ func setUiShield():
 			ui_shield_2.texture = shield_textures[second_indicator_value]
 		else:
 			
-			printerr("alore scudo per scudo2 non valido:", second_indicator_value)
 			ui_shield_2.texture = shield_textures[0] # O una texture di default		

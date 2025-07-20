@@ -49,7 +49,6 @@ func spawn_enemy_to_corner():
 			available_corners.append(corner_name)
 
 	if available_corners.is_empty():
-		print("Tutti gli angoli sono occupati. Impossibile spawnare.")
 		return
 
 	var chosen_corner_name = available_corners[randi() % available_corners.size()]
