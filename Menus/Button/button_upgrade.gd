@@ -41,7 +41,7 @@ func _on_button_pressed() -> void:
 			GC[globalName] += 1
 			GC.totalDrop -= currentPrice
 	updateButton()
-	button_pressed.emit(currentPrice, GC[globalName])
+	button_pressed.emit()
 
 func _on_button_mouse_entered() -> void:
 	descriptionLabel.visible = true

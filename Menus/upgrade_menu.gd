@@ -27,7 +27,7 @@ func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 
 func _on_max_shild_upgrade_button_pressed() -> void:
-	GC.playerMaxShield = 1 + GC.sett
+	GC.playerMaxShield = 1 + GC.settingPlayerMaxShield
 
 func _on_max_velocity_upgrade_button_pressed() -> void:
 	GC.playerMaxVelocity = 200 + GC.settingPlayerMaxVelocity * 40

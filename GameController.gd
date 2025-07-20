@@ -1,19 +1,19 @@
 extends Node
 
-var totalDrop: float = 200
+var totalDrop: float = 2000
 var collectedDrop: int = 0
 var playerShipPosition: Vector2 = Vector2(0,0)
 var currentShield: int
 
 #upgrade
-var playerMaxShield: int = 9
-var playerMaxVelocity: float = 600
-var playerAccel: float = 1500
-var bulletVelocity: int =  1300
+var playerMaxShield: int = 1
+var playerMaxVelocity: float = 200
+var playerAccel: float = 400
+var bulletVelocity: int =  300
 var bulletPerFire: int = 1
 var autoFire: bool = false
 var dropValue: int = 1
-var dropVelocity: float = 1000
+var dropVelocity: float = 0
 
 var shildDrop: float = 0 #falla a percentuale, ovvero la percentuale che un nemico lasci una cura
 
