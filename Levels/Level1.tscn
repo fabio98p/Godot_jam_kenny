@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://daynif12s5yqx" path="res://PlayerShip/PlayerShip.tscn" id="1_w77jt"]
 [ext_resource type="PackedScene" uid="uid://cog77nw86jt7g" path="res://Background/BackgroundStars.tscn" id="2_nutv8"]
 [ext_resource type="PackedScene" uid="uid://bhhol2il3g0xj" path="res://EnemySpawn/EnemySpawn2/enemy_spawn2.tscn" id="4_05pb0"]
-[ext_resource type="PackedScene" uid="uid://bbrd547eacge" path="res://EnemyShips/EnemyShip1/EnemyShip1.tscn" id="5_dl8mf"]
 [ext_resource type="PackedScene" uid="uid://bff3u7fytgoow" path="res://EnemySpawn/enemy_spawn.tscn" id="5_nutv8"]
+[ext_resource type="PackedScene" uid="uid://c11obdil7ks26" path="res://EnemySpawn/EnemySpawn3/enemy_spawn_3.tscn" id="5_xcayt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iotdp"]
 
@@ -24,9 +24,8 @@ spawn_radius = 700.0
 
 [node name="EnemySpawn2" parent="." instance=ExtResource("4_05pb0")]
 
-[node name="EnemyShip1" parent="." instance=ExtResource("5_dl8mf")]
-position = Vector2(478, 260)
-speed = 2500.0
+[node name="EnemySpawn3" parent="." instance=ExtResource("5_xcayt")]
+spawn_radius = 800.0
 
 [node name="Drop" type="Label" parent="."]
 offset_right = 40.0

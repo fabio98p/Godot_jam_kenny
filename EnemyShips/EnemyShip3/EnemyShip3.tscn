@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6bau0cbkpob4"]
+[gd_scene load_steps=14 format=3 uid="uid://d0rmo356g40de"]
 
-[ext_resource type="Texture2D" uid="uid://b1me30q6mbm8y" path="res://Assets/kenney_simple-space/PNG/Default/enemy_A.png" id="1_bm7fu"]
-[ext_resource type="Script" uid="uid://cfwe1cecea2jm" path="res://EnemyShips/EnemyShip2/enemy_ship_2.gd" id="1_jsy7c"]
-[ext_resource type="PackedScene" uid="uid://cklapmbp03rxy" path="res://EnemyBullet/EnemyBullet2/EnemyBullet2.tscn" id="2_odhxt"]
-[ext_resource type="PackedScene" uid="uid://ftjbwl7h68qi" path="res://Drop/drop.tscn" id="3_c4bd8"]
-[ext_resource type="AudioStream" uid="uid://c17vq3fyy0i3m" path="res://Assets/kenney_sci-fi-sounds/Audio/impactMetal_001.ogg" id="5_0v5yl"]
-[ext_resource type="Texture2D" uid="uid://dep8u2fnucoj" path="res://Assets/kenney_particle-pack/PNG (Transparent)/smoke_10.png" id="6_qfm8g"]
+[ext_resource type="Script" uid="uid://pdss74vdkr02" path="res://EnemyShips/EnemyShip3/enemy_ship_3.gd" id="1_ytgo5"]
+[ext_resource type="Texture2D" uid="uid://bi6e6jl5jfj5n" path="res://Assets/kenney_simple-space/PNG/Default/station_C.png" id="2_ytgo5"]
+[ext_resource type="PackedScene" uid="uid://ftjbwl7h68qi" path="res://Drop/drop.tscn" id="3_vt4dl"]
+[ext_resource type="AudioStream" uid="uid://duo4ps83xekiq" path="res://Assets/kenney_sci-fi-sounds/Audio/impactMetal_003.ogg" id="4_d7v1y"]
+[ext_resource type="Texture2D" uid="uid://dr8l38mbwrl1w" path="res://Assets/kenney_particle-pack/PNG (Transparent)/smoke_04.png" id="5_d7v1y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oufov"]
 radius = 24.0832
@@ -50,7 +49,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_8b8vm"]
 resource_name = "ExplosionWave"
-length = 0.3
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -58,7 +57,7 @@ tracks/0/path = NodePath("ExplosionWaveSprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667),
+"times": PackedFloat32Array(0, 0.233333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05), Vector2(0.3, 0.3)]
@@ -70,10 +69,10 @@ tracks/1/path = NodePath("ExplosionWaveSprite:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.433333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(0, 0.929412, 0.933333, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ia7lm"]
@@ -109,20 +108,22 @@ _data = {
 &"RESET": SubResource("Animation_ia7lm")
 }
 
-[node name="EnemyShip2" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_d7v1y"]
+
+[node name="EnemyShip3" type="RigidBody2D"]
 light_mask = 32
-script = ExtResource("1_jsy7c")
-bullet_scene = ExtResource("2_odhxt")
-drop_scene = ExtResource("3_c4bd8")
-bulletPerSecond = 3.0
+script = ExtResource("1_ytgo5")
+drop_scene = ExtResource("3_vt4dl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.552077, 0.373492, 1)
+modulate = Color(0.380235, 0.854047, 0.53999, 1)
 rotation = 1.5708
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("1_bm7fu")
+scale = Vector2(0.8, 0.799)
+texture = ExtResource("2_ytgo5")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(3, 0)
+scale = Vector2(0.598717, 0.598717)
 collision_layer = 16
 collision_mask = 3
 
@@ -138,18 +139,22 @@ libraries = {
 autoplay = "Pulse"
 
 [node name="explosion" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_0v5yl")
-volume_db = 1.351
+stream = ExtResource("4_d7v1y")
+volume_db = -8.104
 
 [node name="ExplosionWaveSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_qfm8g")
+texture = ExtResource("5_d7v1y")
 
 [node name="ExplosionWave" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ia7lm")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.79221, 1.79221)
+shape = SubResource("CircleShape2D_d7v1y")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="finished" from="explosion" to="." method="_on_explosion_finished"]
